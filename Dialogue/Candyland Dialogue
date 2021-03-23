@@ -1,0 +1,192 @@
+"Dialogues":{
+    "Introduction":
+    {
+        "1":
+        {
+            "name": "Colly",
+            "content": "Hello.",
+        },
+        "2":
+        {
+            "name": "Colly",
+            "content": "My name is Colly.",
+        },
+        "3":
+        {
+            "name": "Colly",
+            "content": "I want to kill the Slime King.",
+        },
+        "4":
+        {
+            "name": "Colly",
+            "content": "Why?",
+        },
+        "5":
+        {
+            "name": "Colly",
+            "content": "...",
+        },
+        "6":
+        {
+            "name": "Colly",
+            "content": "'Cuz it'll be fun!",
+        }
+    },
+    "CandyIntroduction":
+    {
+        "1":
+        {
+            "name": "Candy",
+            "content": "Hello.",
+        },
+        "2":
+        {
+            "name": "Colly",
+            "content": "Oh, um, hi."
+        },
+        "3":
+        {
+            "name": "Candy",
+            "content": "I haven't seen you around.. What are you doing here?"
+        },
+        "4":
+        {
+            "name": "Colly",
+            "content": "I want to kill the Slime King!"
+        },
+        "5":
+        {
+            "name": "Candy",
+            "content": "..."
+        },
+        "6":
+        {
+            "name": "Candy",
+            "content": "The Slime King, huh..? He's really tough."
+        },
+        "7":
+        {
+            "name": "Candy",
+            "content": "You can't fight him, nor all the other slimes, by yourself."
+        },
+        "8":
+        {
+            "name": "Candy",
+            "content": "Especially with [i]that[/i] equipment."
+        },
+        "9":
+        {
+            "name": "Candy",
+            "content": ".. But I'm kind of bored, so.. mind if I join you?",
+        },
+        "10":
+        {
+            "name": "Colly",
+            "content": "This could be a trap.. No one has ever wanted to be my friend before."
+        },
+        "11":
+        {
+            "name": "Colly",
+            "content": "... And she has this really intense aura."
+        },
+        "12":
+        {
+            "name": "Colly",
+            "content": ".. Sorry, I don't want your help."
+        },
+        "13":
+        {
+            "name": "Colly",
+            "content": "Even [b]if[/b] you're a regular here."
+        },
+        "14":
+        {
+            "name": "Candy",
+            "content": "... Suit yourself."
+        }
+    },
+    "PostBattle1":
+    {
+        "1":
+        {
+            "name": "Candy",
+            "content": "Told ya you needed me!"
+        },
+        "2":
+        {
+            "name": "Colly",
+            "content": "([i]She's horrifying![/i])"
+        },
+        "3":
+        {
+            "name": "Colly",
+            "content": "([i]... But she saved me.[/i])"
+        },
+        "4":
+        {
+            "name": "Colly",
+            "content": "Hey, um.. Thanks."
+        },
+        "5":
+        {
+            "name": "Candy",
+            "content": "You're letting me in the party, yeah?"
+        },
+        "6":
+        {
+            "name": "Colly",
+            "content": "([i]... Guess I don't have a choice except to let her join. I mean, she DID save me..[/i])"
+        },
+        "7":
+        {
+            "name": "Colly",
+            "content": "Well.. I suppose.."
+        },
+        "8":
+        {
+            "name": "Candy",
+            "content": "*smirk*"
+        },
+        "8":
+        {
+            "name": " ",
+            "content": "[color=blue]*Candy has joined the party.*[/color]"
+        }
+    },
+    "PostBattle2":
+    {
+        "1":
+        {
+            "name": "Colly",
+            "content": "I don't think I'm ever going to get used to those transformations.."
+        },
+        "2":
+        {
+            "name": "Candy",
+            "content": "..."
+        },
+        "3":
+        {
+            "name": "Colly",
+            "content": "..."
+        },
+        "4":
+        {
+            "name": "Colly",
+            "content": "... But you're pretty awesome."
+        },
+        "5":
+        {
+            "name": "Candy",
+            "content": "*smirks*",
+        },
+        "6":
+        {
+            "name": "Candy",
+            "content": "Let's keep moving. I think King Slime is just up ahead."
+        }
+    },
+}
+
+
+        

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Characters/PathDictionary.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+violetData = {
+"get out of bed": {
+"endPosition": Vector2( 384, 192 ),
+"location": "Courtyard",
+"path": [ Vector2( 1, 0 ) ],
+"startPosition": Vector2( 320, 192 )
+},
+"initialization": {
+"endPosition": Vector2( 320, 192 ),
+"location": "GamingClub",
+"path": [ Vector2( 0, 0 ) ],
+"startPosition": Vector2( 320, 192 )
+},
+"walk to table": {
+"endPosition": Vector2( 576, 384 ),
+"location": "GamingClub",
+"path": [ Vector2( 0, -3 ), Vector2( 3, -3 ), Vector2( 3, 0 ), Vector2( 6, 0 ) ],
+"startPosition": Vector2( 384, 192 )
+}
+}
+mapleData = {
+"Scene 1": {
+"dialogue": "",
+"location": "",
+"path": "",
+"position:": ""
+}
+}
+cauliflowerData = {
+"Scene 1": {
+"dialogue": "",
+"location": "",
+"path": "",
+"position:": ""
+}
+}

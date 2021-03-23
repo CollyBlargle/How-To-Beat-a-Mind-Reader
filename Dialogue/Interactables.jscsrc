@@ -1,0 +1,177 @@
+{
+    "Interactables":
+    {
+        "GamingClub":
+        {
+            "Bookshelf1":
+            {
+                "1":
+                {
+                    "name": "",
+                    "content": "([i]What a sad, sad bookshelf. It feels like whoever placed this here didn't expect any readers to come by.[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "2":
+                {
+                    "name": "",
+                    "content": "([i]Let's crack one of these puppies open.[/i]",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "3":
+                {
+                    "name": "",
+                    "content": "([i]It's blank.[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                }
+            },
+            "Bookshelf2":
+            {
+                "1":
+                {
+                    "name": "",
+                    "content": "([i]This bookshelf's books are.. glued to the shelf itself. I guess these weren't meant to be read.[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                }
+            },
+            "Bookshelf3":
+            {
+                "1":
+                {
+                    "name": "",
+                    "content": "([i]Oh, a spider. Hey little guy.[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "2":
+                {
+                    "name": "",
+                    "content": "([i]Never really understood the stigma against spiders. I guess people tend to fear things they don't understand.[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                }
+            },
+            "Bookshelf4":
+            {
+                "1":
+                {
+                    "name": "",
+                    "content": "([i]Hey, there's actually a book I can read the title of! Let's see here...[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "2":
+                {
+                    "name": "",
+                    "content": "([i]... \"Kidnapping, for Dummies\".[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "3":
+                {
+                    "name": "",
+                    "content": "([i]Charming.[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "4":
+                {
+                    "name": "Violet",
+                    "content": "...Mmf..",
+                    "expression": "normal",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "5":
+                {
+                    "name": "Violet",
+                    "content": "Agh!",
+                    "expression": "shocked",
+                    "animation": "surprise",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "6":
+                {
+                    "name": "Violet",
+                    "content": "Where am I..?",
+                    "expression": "angry",
+                    "animation": "",
+                    "particles": "angry",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                },
+                "7":
+                {
+                    "name": "Violet",
+                    "content": "",
+                    "expression": "normal",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "get out of bed",
+                    "choices": [],
+                    "advanceScene": "Violet"
+                }
+            },
+            "Bookshelf5":
+            {
+                "1":
+                {
+                    "name": "",
+                    "content": "([i]An empty bookshelf.[/i])",
+                    "expression": "",
+                    "animation": "",
+                    "particles": "",
+                    "movement": "",
+                    "choices": [],
+                    "advanceScene": ""
+                }
+            }
+        }
+    }
+}

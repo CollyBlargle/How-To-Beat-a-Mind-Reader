@@ -1,0 +1,266 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Settings/Settings.gd" type="Script" id=1]
+[ext_resource path="res://Dialogue/Text Files/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[node name="Settings" type="CanvasLayer" groups=[
+"SaveLoad",
+]]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Menu" type="PopupPanel" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.5
+margin_top = -79.0
+margin_right = 192.5
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+anchor_left = -0.83
+anchor_top = -1.348
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 323.55
+margin_top = 225.072
+margin_right = 188.5
+margin_bottom = 78.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 362.0
+margin_bottom = 141.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlidersLabels" type="GridContainer" parent="Menu/MarginContainer/VBoxContainer"]
+margin_right = 347.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.0
+custom_constants/vseparation = 15
+custom_constants/hseparation = 10
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextSpeed" type="Label" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels"]
+margin_top = 5.0
+margin_right = 70.0
+margin_bottom = 19.0
+text = "Text Speed"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="TextSpeedButtons" type="HBoxContainer" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels"]
+margin_left = 80.0
+margin_right = 347.0
+margin_bottom = 24.0
+
+[node name="CheckBox" type="CheckBox" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons"]
+margin_right = 24.0
+margin_bottom = 24.0
+size_flags_horizontal = 2
+group = SubResource( 1 )
+
+[node name="CheckBox2" type="CheckBox" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons"]
+margin_left = 67.0
+margin_right = 91.0
+margin_bottom = 24.0
+size_flags_horizontal = 2
+group = SubResource( 1 )
+
+[node name="CheckBox3" type="CheckBox" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons"]
+margin_left = 135.0
+margin_right = 159.0
+margin_bottom = 24.0
+size_flags_horizontal = 2
+group = SubResource( 1 )
+
+[node name="CheckBox4" type="CheckBox" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons"]
+margin_left = 203.0
+margin_right = 227.0
+margin_bottom = 24.0
+size_flags_horizontal = 2
+group = SubResource( 1 )
+
+[node name="SFXLabel" type="Label" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels"]
+margin_top = 40.0
+margin_right = 70.0
+margin_bottom = 54.0
+text = "SFX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXSlider" type="HSlider" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels"]
+margin_left = 80.0
+margin_top = 39.0
+margin_right = 347.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicLabel" type="Label" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels"]
+margin_top = 71.0
+margin_right = 70.0
+margin_bottom = 85.0
+text = "Music"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicSlider" type="HSlider" parent="Menu/MarginContainer/VBoxContainer/SlidersLabels"]
+margin_left = 80.0
+margin_top = 70.0
+margin_right = 347.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveLoad" type="HBoxContainer" parent="Menu/MarginContainer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 347.0
+margin_bottom = 126.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="Menu/MarginContainer/VBoxContainer/SaveLoad"]
+margin_right = 166.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadButton" type="Button" parent="Menu/MarginContainer/VBoxContainer/SaveLoad"]
+margin_left = 181.0
+margin_right = 347.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Load"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveLoadMenu" type="PopupPanel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.5
+margin_top = -79.0
+margin_right = 192.5
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuMargin" type="MarginContainer" parent="SaveLoadMenu"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 381.0
+margin_bottom = 154.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SaveLoadMenu/MenuMargin"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 362.0
+margin_bottom = 135.0
+
+[node name="SaveFileButtons" type="VBoxContainer" parent="SaveLoadMenu/MenuMargin/ScrollContainer"]
+margin_right = 347.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_constants/separation = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveLoadLabel" type="Label" parent="SaveLoadMenu/MenuMargin/ScrollContainer/SaveFileButtons"]
+margin_right = 347.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 3 )
+text = "SaveLoad"
+
+[node name="SaveFileButton1" type="Button" parent="SaveLoadMenu/MenuMargin/ScrollContainer/SaveFileButtons"]
+margin_top = 30.0
+margin_right = 347.0
+margin_bottom = 50.0
+grow_vertical = 0
+size_flags_horizontal = 3
+text = "File 1"
+align = 0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+autoplay = true
+[connection signal="textSpeed" from="." to="." method="_on_Settings_textSpeed"]
+[connection signal="hide" from="Menu" to="." method="_on_Menu_hide"]
+[connection signal="popup_hide" from="Menu" to="." method="_on_Menu_popup_hide"]
+[connection signal="button_down" from="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons/CheckBox" to="." method="_on_CheckBox_button_down"]
+[connection signal="button_down" from="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons/CheckBox2" to="." method="_on_CheckBox2_button_down"]
+[connection signal="button_down" from="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons/CheckBox3" to="." method="_on_CheckBox3_button_down"]
+[connection signal="button_down" from="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons/CheckBox4" to="." method="_on_CheckBox4_button_down"]
+[connection signal="value_changed" from="Menu/MarginContainer/VBoxContainer/SlidersLabels/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/SaveLoad/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/SaveLoad/LoadButton" to="." method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="SaveLoadMenu/MenuMargin/ScrollContainer/SaveFileButtons/SaveFileButton1" to="." method="_on_SaveFileButton1_pressed"]

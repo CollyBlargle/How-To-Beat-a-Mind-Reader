@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Characters/Violet/VioletAnimations.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Characters/Violet/VioletPath.gd" type="Script" id=2]
+[ext_resource path="res://Characters/Particles.tres" type="SpriteFrames" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "shocked"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 0.0980731, 1, 0.0980732 ),
+"update": 0,
+"values": [ Vector2( 32, 32 ), Vector2( 32, 5.72205e-06 ), Vector2( 32, 32 ) ]
+}
+
+[node name="VioletPath" type="Path2D" groups=[
+"SaveLoad",
+]]
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VioletPoint" type="PathFollow2D" parent="."]
+rotate = false
+loop = false
+
+[node name="Violet" type="Area2D" parent="VioletPoint"]
+pause_mode = 2
+collision_layer = 2
+
+[node name="VioletCollider" type="CollisionShape2D" parent="VioletPoint/Violet"]
+position = Vector2( 32, 32 )
+shape = SubResource( 2 )
+
+[node name="VioletSprite" type="AnimatedSprite" parent="VioletPoint/Violet"]
+position = Vector2( 32, 32 )
+scale = Vector2( 0.085, 0.085 )
+frames = ExtResource( 1 )
+animation = "downIdle"
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VioletPoint/Violet/VioletSprite"]
+"anims/bump up" = SubResource( 3 )
+anims/shocked = SubResource( 4 )
+
+[node name="Particles" type="AnimatedSprite" parent="VioletPoint/Violet"]
+scale = Vector2( 0.25, 0.25 )
+frames = ExtResource( 3 )
+animation = "angry"
+frame = 3
+playing = true
+centered = false
+
+[node name="RayCast2D" type="RayCast2D" parent="VioletPoint/Violet"]
+position = Vector2( 32, 32 )
+enabled = true
+cast_to = Vector2( 0, 32 )

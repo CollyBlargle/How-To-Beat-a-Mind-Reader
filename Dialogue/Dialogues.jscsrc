@@ -1,0 +1,90 @@
+{
+    "Dialogues":
+    {
+        "Violet":
+        {
+            "Awakening":
+            {
+                "1":
+                {
+                    "name": "Violet",
+                    "content": "Nice programming, genius",
+                    "expression": "normal"
+                },
+                "2":
+                {
+                    "name": "Violet",
+                    "content": "You're an idiot! You don't even know how this game works, and you made it!",
+                    "expression": "angry",
+                    "particles": "angry"
+                },
+                "3":
+                {
+                    "name": "Violet",
+                    "content": "Wait, is this actually, working!?",
+                    "expression": "shocked"
+                },
+                "4":
+                {
+                    "name": "Violet",
+                    "content": "That's crazy!",
+                    "expression": "angry",
+                    "animation": "shocked"
+                },
+                "5":
+                {
+                    "name": "Beret",
+                    "content": "Sucks to suck!",
+                    "expression": "normal"
+                }
+            }
+        },
+        "Maple":
+        {
+            "Awakening":
+            {
+                "said": false,
+                "1":
+                {
+                    "name": "Maple",
+                    "content": "I'm a different character.",
+                    "expression": "normal"
+                },
+                "2":
+                {
+                    "name": "Maple",
+                    "content": "But I use the same pictures.",
+                    "expression": "normal"
+                },
+                "3":
+                {
+                    "name": "Maple",
+                    "content": "What a joke!",
+                    "expression": "normal"
+                },
+                "4":
+                {
+                    "name": "Maple",
+                    "content": "I think if you talk to me again, my dialogue will change. Try it out.",
+                    "expression": "normal"
+                }
+            },
+            "Awakening2":
+            {
+                "said": false,
+                "1":
+                {
+                    "name": "Maple",
+                    "content": "Well? Did it work? Did my dialogue change?",
+                    "expression": "normal"
+                },
+                "2":
+                {
+                    "name": "Maple",
+                    "content": "Clearly, if you see this, it did! Woohoo!",
+                    "expression": "normal"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+things to do:
+
+1. turn overworld input into unhandled input
+        it does not interfere with settings
+        i can advance dialogue and initiate a dialogue without "initiating it again" in dialogueHUD 
+
+2. add "key words" to battle system
+
+3. Come up with some transition
+
+4. Other polishing elements
+    Add expression to overworld
+    Particles in battle system
+
+5. have some "read" entry for characters so when i 
+
+6. change groups of variables to enums, like "mood", "facePlayer"..

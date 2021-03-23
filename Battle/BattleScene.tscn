@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Battle/Maple Sprites/Default.png" type="Texture" id=1]
+[ext_resource path="res://Battle/Violet Sprites/Angry.png" type="Texture" id=2]
+[ext_resource path="res://Inventory/InventoryPanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Battle/BattleScene.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 1000, 2000 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1000, 2000 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "Scary",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Smirk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "Default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Squeeze"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TopBar:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -128 ), Vector2( 0, -64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomBar:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 640 ), Vector2( 0, 576 ) ]
+}
+
+[node name="Node" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+
+[node name="LeftSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 162, 560 )
+scale = Vector2( 0.35, 0.35 )
+frames = SubResource( 2 )
+animation = "New Anim"
+flip_h = true
+
+[node name="RightSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1248, 312 )
+scale = Vector2( 0.35, 0.35 )
+frames = SubResource( 4 )
+animation = "Default"
+
+[node name="CinematicAspectRatio" type="CanvasLayer" parent="."]
+
+[node name="TopBar" type="ColorRect" parent="CinematicAspectRatio"]
+margin_top = -128.0
+margin_right = 1024.0
+margin_bottom = -3.05176e-05
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomBar" type="ColorRect" parent="CinematicAspectRatio"]
+margin_top = 640.0
+margin_right = 1024.0
+margin_bottom = 768.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CinematicAspectRatio"]
+anims/Squeeze = SubResource( 5 )
+
+[node name="InventoryPanel" parent="." instance=ExtResource( 3 )]
+margin_left = 54.0
+margin_top = -150.0
+margin_right = 422.0
+margin_bottom = 186.0

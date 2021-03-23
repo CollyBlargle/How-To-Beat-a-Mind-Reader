@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://Inventory/Items/ItemResources/Betray.tres" type="Resource" id=1]
+[ext_resource path="res://Inventory/Items/ItemResources/Cooperate.tres" type="Resource" id=2]
+[ext_resource path="res://Inventory/Inventory.gd" type="Script" id=3]
+[ext_resource path="res://Inventory/Items/ItemResources/Forest.tres" type="Resource" id=4]
+[ext_resource path="res://Inventory/Items/ItemResources/ForestDeck.tres" type="Resource" id=5]
+[ext_resource path="res://Inventory/Items/ItemResources/PartyPopper.tres" type="Resource" id=6]
+[ext_resource path="res://Inventory/Items/ItemResources/MapleDeck.tres" type="Resource" id=7]
+[ext_resource path="res://Inventory/Items/ItemResources/Violet.tres" type="Resource" id=8]
+[ext_resource path="res://Inventory/Items/ItemResources/Maple.tres" type="Resource" id=9]
+
+[resource]
+script = ExtResource( 3 )
+items = [ ExtResource( 1 ), ExtResource( 2 ), null, ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), null, null, null, null, null, null, null, null, null ]
