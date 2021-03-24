@@ -5,3 +5,5 @@ func _ready():
 
 func initialize_scene():
 	$CinematicAspectRatio/AnimationPlayer.current_animation = "Squeeze"
+
+#AYYYY WHAT'S GOING ON BROS
