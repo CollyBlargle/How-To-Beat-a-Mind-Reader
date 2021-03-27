@@ -9,58 +9,29 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "HBoxContainer",
-"class": "ContributorClass",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/ContributorClass.gd"
-}, {
-"base": "Reference",
-"class": "GistItem",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/GistItem.gd"
-}, {
 "base": "Resource",
 "class": "Inventory",
 "language": "GDScript",
-"path": "res://Inventory/Inventory.gd"
-}, {
-"base": "Reference",
-"class": "InvitationItem",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/InvitationItem.gd"
+"path": "res://battle/battle_ui/inventory.gd"
 }, {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://Inventory/Item.gd"
-}, {
-"base": "Reference",
-"class": "RepositoryItem",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/RepositoryItem.gd"
+"path": "res://battle/inventory/item.gd"
 } ]
 _global_script_class_icons={
-"ContributorClass": "",
-"GistItem": "",
 "Inventory": "",
-"InvitationItem": "",
-"Item": "",
-"RepositoryItem": ""
+"Item": ""
 }
 
 [application]
 
 config/name="How to Beat a Mind Reader?"
-run/main_scene="res://Overworld/Main.tscn"
+run/main_scene="res://main.tscn"
 
 [autoload]
 
-PathDictionary="*res://Characters/PathDictionary.gd"
-SaveDataManager="*res://Saves/SaveDataManager.gd"
-PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+SaveDataManager="*res://saves/save_data_manager.gd"
 
 [display]
 
@@ -70,7 +41,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "github-integration" )
+enabled=PoolStringArray(  )
 
 [filesystem]
 

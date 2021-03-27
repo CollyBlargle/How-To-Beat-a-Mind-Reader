@@ -1,7 +1,16 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Settings/Settings.gd" type="Script" id=1]
-[ext_resource path="res://Dialogue/Text Files/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://settings/settings.gd" type="Script" id=1]
+[ext_resource path="res://dialogue/font_files/roboto_regular.ttf" type="DynamicFontData" id=2]
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="ButtonGroup" id=1]
 
