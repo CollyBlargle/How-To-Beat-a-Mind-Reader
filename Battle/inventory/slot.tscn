@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://battle/inventory/slot.gd" type="Script" id=1]
+[ext_resource path="res://battle/inventory/tooltip.tscn" type="PackedScene" id=2]
+
+[node name="SlotDisplay" type="CenterContainer"]
+margin_right = 1024.0
+margin_bottom = 640.0
+rect_pivot_offset = Vector2( 512, 320 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 512.0
+margin_top = 320.0
+margin_right = 512.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 24, 24 )
+
+[node name="Tooltip" parent="." instance=ExtResource( 2 )]
+[connection signal="mouse_entered" from="." to="." method="_on_SlotDisplay_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_SlotDisplay_mouse_exited"]

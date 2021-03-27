@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://battle/inventory/items/item_resources/maple_deck.tres" type="Resource" id=1]
+[ext_resource path="res://battle/inventory/items/item_resources/betray.tres" type="Resource" id=2]
+[ext_resource path="res://battle/inventory/items/item_resources/cooperate.tres" type="Resource" id=3]
+[ext_resource path="res://battle/inventory/items/item_resources/forest.tres" type="Resource" id=4]
+[ext_resource path="res://battle/inventory/items/item_resources/party_popper.tres" type="Resource" id=5]
+[ext_resource path="res://battle/battle_ui/inventory.gd" type="Script" id=6]
+[ext_resource path="res://battle/inventory/items/item_resources/maple.tres" type="Resource" id=7]
+[ext_resource path="res://battle/inventory/items/item_resources/violet.tres" type="Resource" id=8]
+[ext_resource path="res://battle/inventory/items/item_resources/forest_deck.tres" type="Resource" id=9]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[resource]
+script = ExtResource( 6 )
+items = [ ExtResource( 2 ), ExtResource( 3 ), null, ExtResource( 4 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 8 ), null, null, null, null, null, null, null, null, null ]

@@ -1,0 +1,145 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://battle/maple_sprites/default.png" type="Texture" id=1]
+[ext_resource path="res://battle/inventory/inventory_panel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://battle/battle_ui/battle_scene.gd" type="Script" id=4]
+[ext_resource path="res://battle/battle_ui/answer_slot.gd" type="Script" id=5]
+[ext_resource path="res://battle/beret_sprites/beret.png" type="Texture" id=6]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1000, 2000 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "Smirk",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Scary",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "Default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Squeeze"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TopBar:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -128 ), Vector2( 0, -64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BottomBar:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 640 ), Vector2( 0, 576 ) ]
+}
+
+[node name="Node" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+
+[node name="LeftSprite" type="Sprite" parent="."]
+position = Vector2( 220.223, 463.522 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="RightSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1248, 312 )
+scale = Vector2( 0.35, 0.35 )
+frames = SubResource( 4 )
+animation = "Default"
+
+[node name="CinematicAspectRatio" type="CanvasLayer" parent="."]
+
+[node name="TopBar" type="ColorRect" parent="CinematicAspectRatio"]
+margin_top = -128.0
+margin_right = 1024.0
+margin_bottom = -3.05176e-05
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomBar" type="ColorRect" parent="CinematicAspectRatio"]
+margin_top = 640.0
+margin_right = 1024.0
+margin_bottom = 768.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CinematicAspectRatio"]
+anims/Squeeze = SubResource( 5 )
+
+[node name="InventoryPanel" parent="." instance=ExtResource( 3 )]
+margin_left = 54.0
+margin_top = -150.0
+margin_right = 422.0
+margin_bottom = 186.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 377.595
+margin_top = 251.73
+margin_right = 441.595
+margin_bottom = 315.73
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SlotDisplay" type="CenterContainer" parent="ColorRect"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 512, 320 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/SlotDisplay"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 24, 24 )
