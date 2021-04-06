@@ -1,0 +1,238 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_BakedStory/EXP_BakedStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Baked_Story"
+story = {
+1: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Test NPC</speaker>
+<body>[b]Oh, um, hello.[/b] Is this working properly?</body>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Test NPC</speaker>
+<body>Ah.. I suppose it is, if you're able to read this.</body>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>You</speaker>
+<body>...</body>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Test NPC</speaker>
+<body>Guess you don't need me anymore, huh..?</body>"
+},
+6: {
+"links": {
+0: 7
+},
+"text": "<speaker>Test NPC</speaker>
+<body>..Please don't forget me..</body>"
+},
+7: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+2: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 4
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo!</dialogue>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+},
+4: {
+"links": {
+
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo poyo!</dialogue>"
+},
+5: {
+"links": {
+0: 6,
+1: 7,
+2: 8
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo poyo poyo?</dialogue>
+<choiceJSON>{\"Poyo.\" : 0, \"Poyo poyo!\" : 1, \"Poyo poyo poyo!!!!\" : 2}</choiceJSON>"
+},
+6: {
+"links": {
+0: 9
+},
+"text": "<speaker>You</speaker>
+<dialogue>Poyo.</dialogue>
+
+"
+},
+7: {
+"links": {
+0: 11
+},
+"text": "<speaker>You</speaker>
+<dialogue>Poyo poyo!</dialogue>
+
+<choiceJSON>{0:"
+},
+8: {
+"links": {
+0: 19
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>...</dialogue>"
+},
+9: {
+"links": {
+0: 10
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>...</dialogue>"
+},
+10: {
+"links": {
+0: 3
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>Neutral ending.</dialogue>"
+},
+11: {
+"links": {
+0: 13,
+1: 12
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo poyo poyo poyo poyo poyo poyo poyo?</dialogue>
+<choiceJSON>{\"Poyo!\" : 0, \"I am a Poyo.\" : 1}</choiceJSON>"
+},
+12: {
+"links": {
+0: 15
+},
+"text": "<speaker>You</speaker>
+<dialogue>I am a Poyo.</dialogue>"
+},
+13: {
+"links": {
+0: 14
+},
+"text": "<speaker>You</speaker>
+<dialogue>Poyo!</dialogue>"
+},
+14: {
+"links": {
+0: 16
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>...</dialogue>"
+},
+15: {
+"links": {
+0: 17
+},
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo!</dialogue>"
+},
+16: {
+"links": {
+0: 22
+},
+"text": "<speaker> </speaker>
+<dialogue>Kirby is bored of you and eats you. Bad ending 2.</dialogue>"
+},
+17: {
+"links": {
+0: 18
+},
+"text": "<speaker> </speaker>
+<dialogue>Kirby is impressed by your advanced use of language!"
+},
+18: {
+"links": {
+0: 23
+},
+"text": "<speaker> </speaker>
+<dialogue>Good ending. </dialogue>"
+},
+19: {
+"links": {
+0: 20
+},
+"text": "<speaker> </speaker>
+<dialogue>Kirby is kind of freaked out by your enthusiasm.</dialogue>"
+},
+20: {
+"links": {
+0: 21
+},
+"text": "<speaker></speaker>
+<dialogue>... And he eats you. Bad ending 1.</dialogue>"
+},
+21: {
+"links": {
+
+},
+"text": "<end>"
+},
+22: {
+"links": {
+
+},
+"text": "<end>"
+},
+23: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+3: {
+"nodes": {
+
+}
+}
+}
+names = {
+"test_kirby": 2,
+"test_npc_male": 1
+}

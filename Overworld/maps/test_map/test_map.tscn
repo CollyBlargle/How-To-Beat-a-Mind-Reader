@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://overworld/maps/test_map/tilemaps/test_map_walls.tres" type="TileSet" id=1]
+[ext_resource path="res://overworld/npcs/npc.tscn" type="PackedScene" id=2]
+[ext_resource path="res://overworld/player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://overworld/maps/test_map/tilemaps/test_map_ground.tres" type="TileSet" id=4]
+[ext_resource path="res://overworld/maps/test_map/test_map.gd" type="Script" id=5]
+[ext_resource path="res://overworld/violet/VioletAnimations.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://dialogue/dialogue_ui/dialogue_ui.tscn" type="PackedScene" id=7]
+[ext_resource path="res://overworld/maps/test_map/dialogues/baked_test_map_dialogues.tres" type="Resource" id=8]
+[ext_resource path="res://overworld/npcs/default_boy/MaleNPCAnimations.tres" type="SpriteFrames" id=9]
+
+[node name="TestMap" type="Node"]
+script = ExtResource( 5 )
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 16
+format = 1
+tile_data = PoolIntArray( 1, 0, 0, 2, 3, 0, 3, 3, 1, 4, 3, 1, 5, 3, 1, 6, 3, 1, 7, 3, 1, 8, 3, 1, 9, 3, 2, 10, 0, 0, 65538, 3, 65536, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 3, 65538, 131074, 3, 65536, 131081, 3, 65537, 131082, 3, 1, 131083, 3, 1, 131084, 3, 1, 131085, 3, 1, 131086, 3, 1, 131087, 3, 2, 196610, 3, 65536, 196617, 2, 0, 196618, 2, 0, 196619, 2, 0, 196620, 2, 0, 196621, 2, 0, 196622, 2, 0, 196623, 3, 65538, 262146, 3, 65536, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262159, 3, 65538, 327682, 3, 65536, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327693, 1, 0, 327695, 3, 65538, 393218, 3, 65536, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393231, 3, 65538, 458754, 3, 131072, 458755, 3, 131073, 458756, 3, 131073, 458757, 3, 131073, 458758, 3, 196609, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458767, 3, 65538, 524293, 0, 65536, 524294, 3, 65536, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524303, 3, 65538, 589829, 0, 131072, 589830, 3, 131072, 589831, 3, 131073, 589832, 3, 131073, 589833, 3, 131073, 589834, 3, 131073, 589835, 3, 131073, 589836, 3, 131073, 589837, 3, 131073, 589838, 3, 131073, 589839, 3, 131074 )
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 2, 65536, 0, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 2, 0, 65548, 2, 0, 65549, 2, 0, 131072, 0, 0, 196608, 0, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 327680, 0, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 393216, 0, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 131073, 458757, 0, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 524293, 0, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 589829, 0, 0, 589831, 0, 0, 589832, 0, 131073, 589833, 0, 131073, 589834, 0, 131073, 589835, 0, 0, 589836, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 192 )
+
+[node name="TestNPCMale" parent="." groups=[
+"npc",
+] instance=ExtResource( 2 )]
+position = Vector2( 512, 320 )
+collision_layer = 2
+dialogueName = "test_npc_male"
+
+[node name="Sprite" parent="TestNPCMale" index="1"]
+frames = ExtResource( 9 )
+animation = "idle_down"
+
+[node name="DialogueUI" parent="." instance=ExtResource( 7 )]
+pause_mode = 0
+story = ExtResource( 8 )
+
+[node name="NPC" parent="." instance=ExtResource( 2 )]
+position = Vector2( 704, 448 )
+
+[node name="Sprite" parent="NPC" index="1"]
+scale = Vector2( 0.0887124, 0.0853333 )
+frames = ExtResource( 6 )
+animation = "move_down"
+
+[editable path="TestNPCMale"]
+
+[editable path="NPC"]

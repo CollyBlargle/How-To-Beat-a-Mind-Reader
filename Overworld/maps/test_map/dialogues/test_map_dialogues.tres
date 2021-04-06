@@ -1,0 +1,371 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_EditorStory/EXP_EditorStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Story_editor"
+names = {
+"test_kirby": 2,
+"test_npc_male": 1
+}
+story = {
+1: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Test Dialogue. Remember to delete this later.",
+"name": "test_npc_male",
+"nodes": {
+1: {
+"graph_offset": Vector2( 0, 200 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 0, 400 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Test NPC</speaker>
+<body>[b]Oh, um, hello.[/b] Is this working properly?</body>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 0, 600 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Test NPC</speaker>
+<body>Ah.. I suppose it is, if you're able to read this.</body>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 0, 800 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>You</speaker>
+<body>...</body>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 600, 200 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Test NPC</speaker>
+<body>Guess you don't need me anymore, huh..?</body>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 600, 400 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Test NPC</speaker>
+<body>..Please don't forget me..</body>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 600, 600 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+2: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Test Dialogue. Remember to delete this later.",
+"name": "test_kirby",
+"nodes": {
+1: {
+"graph_offset": Vector2( 0, 400 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 0, 600 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo!</dialogue>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 600, 600 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 0, 800 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo poyo!</dialogue>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 0, 1000 ),
+"links": {
+0: 6,
+1: 7,
+2: 8
+},
+"rect_size": Vector2( 508, 239.667 ),
+"slot_amount": 3,
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo poyo poyo?</dialogue>
+<choiceJSON>{\"Poyo.\" : 0, \"Poyo poyo!\" : 1, \"Poyo poyo poyo!!!!\" : 2}</choiceJSON>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 600, 0 ),
+"links": {
+0: 9
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>You</speaker>
+<dialogue>Poyo.</dialogue>
+
+",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 600, 1000 ),
+"links": {
+0: 11
+},
+"rect_size": Vector2( 508, 179.28 ),
+"slot_amount": 1,
+"text": "<speaker>You</speaker>
+<dialogue>Poyo poyo!</dialogue>
+
+<choiceJSON>{0:",
+"type": "line"
+},
+8: {
+"graph_offset": Vector2( 600, 1600 ),
+"links": {
+0: 19
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Kirby</speaker>
+<dialogue>...</dialogue>",
+"type": "line"
+},
+9: {
+"graph_offset": Vector2( 600, 200 ),
+"links": {
+0: 10
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Kirby</speaker>
+<dialogue>...</dialogue>",
+"type": "line"
+},
+10: {
+"graph_offset": Vector2( 600, 400 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Kirby</speaker>
+<dialogue>Neutral ending.</dialogue>",
+"type": "line"
+},
+11: {
+"graph_offset": Vector2( 600, 1200 ),
+"links": {
+0: 13,
+1: 12
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 2,
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo poyo poyo poyo poyo poyo poyo poyo?</dialogue>
+<choiceJSON>{\"Poyo!\" : 0, \"I am a Poyo.\" : 1}</choiceJSON>",
+"type": "line"
+},
+12: {
+"graph_offset": Vector2( 1200, 1400 ),
+"links": {
+0: 15
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>You</speaker>
+<dialogue>I am a Poyo.</dialogue>",
+"type": "line"
+},
+13: {
+"graph_offset": Vector2( 1200, 400 ),
+"links": {
+0: 14
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>You</speaker>
+<dialogue>Poyo!</dialogue>",
+"type": "line"
+},
+14: {
+"graph_offset": Vector2( 1200, 600 ),
+"links": {
+0: 16
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Kirby</speaker>
+<dialogue>...</dialogue>",
+"type": "line"
+},
+15: {
+"graph_offset": Vector2( 1200, 1600 ),
+"links": {
+0: 17
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Kirby</speaker>
+<dialogue>Poyo!</dialogue>",
+"type": "line"
+},
+16: {
+"graph_offset": Vector2( 1200, 800 ),
+"links": {
+0: 22
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker> </speaker>
+<dialogue>Kirby is bored of you and eats you. Bad ending 2.</dialogue>",
+"type": "line"
+},
+17: {
+"graph_offset": Vector2( 1200, 1800 ),
+"links": {
+0: 18
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker> </speaker>
+<dialogue>Kirby is impressed by your advanced use of language!",
+"type": "line"
+},
+18: {
+"graph_offset": Vector2( 1200, 2000 ),
+"links": {
+0: 23
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker> </speaker>
+<dialogue>Good ending. </dialogue>",
+"type": "line"
+},
+19: {
+"graph_offset": Vector2( 600, 1800 ),
+"links": {
+0: 20
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker> </speaker>
+<dialogue>Kirby is kind of freaked out by your enthusiasm.</dialogue>",
+"type": "line"
+},
+20: {
+"graph_offset": Vector2( 600, 2000 ),
+"links": {
+0: 21
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker></speaker>
+<dialogue>... And he eats you. Bad ending 1.</dialogue>",
+"type": "line"
+},
+21: {
+"graph_offset": Vector2( 600, 2200 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+22: {
+"graph_offset": Vector2( 1200, 1000 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+23: {
+"graph_offset": Vector2( 1200, 2200 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+3: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"nodes": {
+
+}
+}
+}
+available_dids = [  ]
+groups = [  ]
