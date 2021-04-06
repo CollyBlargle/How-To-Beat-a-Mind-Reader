@@ -1,3 +1,7 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://overworld/maps/test_map/test_map.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node"]
+
+[node name="TestMap" parent="." instance=ExtResource( 3 )]

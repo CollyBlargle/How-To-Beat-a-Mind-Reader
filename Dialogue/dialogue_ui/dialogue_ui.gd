@@ -1,314 +1,82 @@
 extends CanvasLayer
 
-signal dialogueAdvancement
+onready var Story_Reader_Class = preload("res://addons/EXP-System-Dialog/Reference_StoryReader/EXP_StoryReader.gd")
+onready var storyReader = Story_Reader_Class.new()
+export (Resource) var story
 
-var dialogues := {}
-var interactables := {}
-var choicePresent := false
-var printingText := false
-var open := false
+onready var animationPlayer = get_node("DialoguePanel/AnimationPlayer")
+onready var dialoguePanel = get_node("DialoguePanel")
+onready var speakerLabel = get_node("DialoguePanel/SpeakerLabel")
+onready var bodyLabel = get_node("DialoguePanel/BodyLabel")
+onready var portrait = get_node("DialoguePanel/PortraitHolder/Portrait")
 
-var dialoguesPath := "res://Dialogue/Dialogues.jscsrc"
-var interactablesPath := "Interactables.jscsrc"
-var location := "GamingClub"
+var did = 0
+var nid = 0
+var final_nid = 0 
+var open 
 
 func _ready():
-	$DialoguePanel.hide()
-	loadDialogues(dialoguesPath)
-	loadInteractables(interactablesPath)
+#	storyReader.read(story)
+	pass
 
-func _unhandled_input(event):
-	if boxAnimating == false:
-		if event.is_action_pressed("advance_dialogue"): #&& self.get_rect().has_point(get_global_mouse_position())):
-			if (printingText):
-				$DialoguePanel/Content.set_visible_characters(-1)
-				printingText = false
-				$DialoguePanel/Content/Timer.stop()
-			else:
-				if (choicePresent == false and open):
-					print("advance dialogue")
-					currentID += 1
-					parseDialogues(actorScreenplay, currentID, dialoguePath)
-					emit_signal("dialogueAdvancement")
+func _on_Player_initiate_dialogue(dialogueName, _directionFacing):
+	animationPlayer.current_animation = "pop_up"
+	open = true
+	play_dialogue(dialogueName)
+	print()
 
-#Loads a file and puts it into the "dialogues" variable
-#https://itch.io/profile/insbilla
-func loadDialogues(fname): 
-	dialoguesPath = fname
-	var file = File.new()
-	if file.file_exists(dialoguesPath):
-		file.open(dialoguesPath, file.READ)
-		var jsonResult = parse_json(file.get_as_text())
-		dialogues = jsonResult["Dialogues"]
-	else:
-		print("Dialogue: File Open Error")
-	file.close()
+#Remember to change alignment of text!!
+func _input(_event):
+	if Input.is_action_just_pressed("move_up"):
+		animationPlayer.current_animation = "pop_up"
+	if Input.is_action_just_pressed("move_down"):
+		animationPlayer.current_animation = "left_switch_hide"
+		yield(animationPlayer, "animation_finished")
+		speakerLabel.text = "My new name"
+		bodyLabel.text = "See, I can change my body as well! I just want to show you my cool features."
+		portrait.texture = load("res://overworld/violet_portraits/Angry Violet.png")
+		animationPlayer.current_animation = "left_switch_show"
+	if open:
+		get_tree().set_input_as_handled()
+		if Input.is_action_just_pressed("interact"):
+			if is_waiting():
+				get_next_node()
+				if is_playing():
+					play_node()
 
-func loadInteractables(fname): 
-	interactablesPath = fname
-	var file = File.new()
-	if file.file_exists(interactablesPath):
-		file.open(interactablesPath, file.READ)
-		var jsonResult = parse_json(file.get_as_text())
-		interactables = jsonResult["Interactables"]
-	else:
-		print("Interactables: File Open Error")
-	file.close()
+func play_dialogue(recordName):
+	did = storyReader.get_did_via_record_name(recordName)
+	nid = storyReader.get_nid_via_exact_text(did, "<start>")
+	final_nid = storyReader.get_nid_via_exact_text(did, "<end>")
+	get_next_node()
+	play_node()
+	dialoguePanel.show()
 
-#Prints characters 1 by 1. Look at this later; seems like it prints letters.. jitterily
-var textCount
-func displayContent(text):
-	$DialoguePanel/Content.set_bbcode(text)
-	if (textSpeed != "instant"):
-		textCount = 0
-		$DialoguePanel/Content.set_visible_characters(0)
-		while ($DialoguePanel/Content.get_visible_characters() < len(text)):
-			printingText = true
-			textCount += 1
-			$DialoguePanel/Content/Timer.start()
-			yield($DialoguePanel/Content/Timer, "timeout")
-			$DialoguePanel/Content.set_visible_characters(textCount)
-		printingText = false
-		$DialoguePanel/Content/Timer.stop()
+func is_playing() -> bool:
+	return dialoguePanel.visible
 
-#If the text is clicked, advance dialogue
-#func _on_Content_gui_input(_event):
-#	if (Input.is_action_just_released("advance_dialogue")): ##&& self.get_rect().has_point(get_global_mouse_position())):
-#		if (printingText):
-#			$DialoguePanel/Content.set_visible_characters(-1)
-#			printingText = false
-#			$DialoguePanel/Content/Timer.stop()
-#		else:
-#			if (choicePresent == false):
-#				currentID += 1
-#				parseDialogues(actorScreenplay, currentID, dialoguePath)
-#				emit_signal("dialogueAdvancement")
+func is_waiting() -> bool:
+	return true
 
-#Advances dialogue after a choice is made on the ChoiceButtons
-var dialoguePath := "a"
-func _on_ChoiceButtons_choiceMade(path):
-	currentID += 1
-	dialoguePath = path
-	parseDialogues(actorScreenplay, currentID, dialoguePath)
-	emit_signal("dialogueAdvancement")
-	choicePresent = false
-
-#Updates text speed based on settings
-var textSpeed := "fast"
-func _on_Settings_textSpeed(speed):
-	match speed:
-		"slow":
-			textSpeed = speed
-			$DialoguePanel/Content/Timer.set_wait_time(0.1)
-		"medium":
-			textSpeed = speed
-			$DialoguePanel/Content/Timer.set_wait_time(0.05)
-		"fast":
-			textSpeed = speed
-			$DialoguePanel/Content/Timer.set_wait_time(0.001)
-		"instant":
-			textSpeed = speed
-
-var actorScreenplay := {}
-var sceneNames :={
-	"Maple": ["Awakening", "Title1", "Title2"],
-	"Violet": ["Awakening", "Introduction", "Title2"],
-	"Cauliflower": ["Introduction", "Title1", "Title2"]
-}
-
-var characterName
-var content
-var particles
-var expression
-
-const expressionDictionary ={
-	"Maple":
-	{
-		"angry" : preload("res://Characters/Violet Portraits/Angry Violet.png"),
-		"normal" : preload("res://Characters/Violet Portraits/Normal Violet.png"),
-		"shocked" :  preload("res://Characters/Violet Portraits/Shocked Violet.png")
-	},
-	"Violet":
-	{
-		"angry" : preload("res://Characters/Violet Portraits/Angry Violet.png"),
-		"normal" : preload("res://Characters/Violet Portraits/Normal Violet.png"),
-		"shocked" :  preload("res://Characters/Violet Portraits/Shocked Violet.png")
-	},
-	"Forest":
-	{
-		"angry" : preload("res://Characters/Violet Portraits/Angry Violet.png"),
-		"normal" : preload("res://Characters/Violet Portraits/Normal Violet.png"),
-		"shocked" :  preload("res://Characters/Violet Portraits/Shocked Violet.png")
-	},
-	"Beret":
-	{
-		"angry" : preload("res://Characters/Violet Portraits/Angry Violet.png"),
-		"normal" : preload("res://Characters/Violet Portraits/Normal Violet.png"),
-		"shocked" :  preload("res://Characters/Violet Portraits/Shocked Violet.png")
-	}
-}
-
-var animation
-var movement
-var choices
-var advanceScene
-
-var mapleScene := 0
-var violetScene := 0
-var cauliflowerScene := 0
-
-var dialogueKey := "1a1"
-var currentID := 1
-var pathLength := 1
-
-signal processScene
-signal emote
-signal movement
-signal animation
-
-var boxAnimating
-
-func parseDialogues(screenplay, id, path):
-	#First, receive dictionary of dialogue data
-	if screenplay.has(str(id) + str(path) + str(pathLength)):
-		dialogueKey = str(id) + str(path) + str(pathLength)
-		pathLength += 1
-	elif screenplay.has(str(id)):
-		dialogueKey = str(id)
-	elif not screenplay.has(str(id) + str(path) + str(pathLength)) and not screenplay.has(str(id)):
-		print("reset")
-		$DialoguePanel/AnimationPlayer.play_backwards("pop up")
-		boxAnimating = true
+func get_next_node():
+	nid = storyReader.get_nid_from_slot(did, nid, 0)
+	if nid == final_nid:
 		open = false
-		yield($DialoguePanel/AnimationPlayer, "animation_finished")
-		boxAnimating = false
-		currentID = 1
-		pathLength = 1
-		get_tree().paused = false
-		$DialoguePanel.hide()
-	
-	characterName = screenplay[dialogueKey]["name"]
-	
-	content = screenplay[dialogueKey]["content"]
-	
-	if (screenplay[dialogueKey].has("expression")):
-		expression = screenplay[dialogueKey]["expression"]
-	else:
-		expression = ""
-	
-	if (screenplay[dialogueKey].has("animation")):
-		animation = screenplay[dialogueKey]["animation"]
-	else:
-		animation = ""
-	
-	if (screenplay[dialogueKey].has("particles")):
-		particles = screenplay[dialogueKey]["particles"]
-	else:
-		particles = ""
-	
-	if (screenplay[dialogueKey].has("movement")):
-		movement = screenplay[dialogueKey]["movement"]
-	else:
-		movement = ""
-	
-	if (screenplay[dialogueKey].has("choices")):
-		choices = screenplay[dialogueKey]["choices"]
-	else:
-		choices = []
-	
-	if (screenplay[dialogueKey].has("advanceScene")):
-		advanceScene = screenplay[dialogueKey]["advanceScene"]
-	else:
-		advanceScene = ""
-	
-	#Second, send data to appropriate sections.
-	if characterName == "customScene":
-		emit_signal("processScene")
-	else:
-		$DialoguePanel/Name.set_text(characterName)
-		if characterName == "Beret" or characterName == "Maple" or characterName == "Violet" or characterName == "Forest":
-			$DialoguePanel/PortraitHolder.show()
-			$DialoguePanel/PortraitHolder/Portrait.set_texture(expressionDictionary[characterName][expression])
-		else:
-			$DialoguePanel/PortraitHolder.hide()
-	
-	displayContent(content)
-	
-	if not animation.empty():
-		emit_signal("animation", characterName, animation)
-	
-	if not particles.empty():
-		emit_signal("emote", characterName, particles)
-	
-	if not choices.empty():
-		$DialoguePanel/ChoiceButtons.showButtons(choices.size(), choices)
-		choicePresent = true
-	
-	if movement and not content:
-		currentID = 1
-		pathLength = 1
-		$DialoguePanel.hide()
-		get_tree().paused = false
-		emit_signal("movement", characterName, movement)
-	elif movement and content:
-		emit_signal("movement", characterName, movement)
-	elif not movement:
-		pass
-	
-	#if advance scene, then match name
-	if not advanceScene.empty():
-		match advanceScene:
-			"Violet":
-				violetScene += 1
-			"Maple":
-				mapleScene += 1
-			"Cauliflower":
-				cauliflowerScene += 1
+		dialoguePanel.hide()
 
-func sendSaveData():
-	SaveDataManager.currentSaveData["scenes"]["violetScene"] = violetScene
-	SaveDataManager.currentSaveData["scenes"]["mapleScene"] = mapleScene
-	SaveDataManager.currentSaveData["scenes"]["cauliflowerScene"] = cauliflowerScene
-	SaveDataManager.currentSaveData["scenes"]["customScene"] = SaveDataManager.customScene
+func get_tagged_text(tag : String, text : String) -> String:
+	var start_tag = "<" + tag + ">"
+	var end_tag = "</" + tag + ">"
+	var start_index = text.find(start_tag) + start_tag.length()
+	var end_index = text.find(end_tag)
+	var substring_length = end_index - start_index
+	return text.substr(start_index, substring_length)
 
-func receiveLoadData():
-	violetScene = SaveDataManager.currentSaveData["scenes"]["violetScene"]
-	mapleScene = SaveDataManager.currentSaveData["scenes"]["mapleScene"]
-	cauliflowerScene = SaveDataManager.currentSaveData["scenes"]["cauliflowerScene"]
-	SaveDataManager.customScene = SaveDataManager.currentSaveData["scenes"]["customScene"]
+func play_node():
+	var text = storyReader.get_text(did, nid)
+	var speaker = get_tagged_text("speaker", text)
+	var body = get_tagged_text("body", text)
+	print(speaker)
 	
-func _on_Player_initiateDialogue(name, _directionFacing):
-	var sceneNumber
-	var sceneName
-	#If the thing you're talking to is a character, then send necessary character data
-	if dialogues.has(name):
-		sceneNumber = mapleScene
-		sceneName = sceneNames[name][sceneNumber]
-		actorScreenplay = dialogues[name][sceneName]
-	#Otherwise send the interactables data
-	else:
-		actorScreenplay = interactables[location][str(name)]
-	#If the "said" flag exists, and it's true, then instead take a different dialogue.
-	if actorScreenplay.has("said"):
-		if actorScreenplay["said"]:
-			actorScreenplay = dialogues[name][sceneName + "2"]
-		else:
-			actorScreenplay["said"] = true
-	parseDialogues(actorScreenplay, currentID, dialoguePath)
-	$DialoguePanel.show()
-	$DialoguePanel/AnimationPlayer.current_animation = "pop up"
-	open = true
-	boxAnimating = true
-	yield($DialoguePanel/AnimationPlayer, "animation_finished")
-	boxAnimating = false
-	get_tree().paused = true
-
-func _on_OOB_initiateDialogue(screenplay):
-	parseDialogues(screenplay, currentID, null)
-	$DialoguePanel.show()
-	$DialoguePanel/AnimationPlayer.current_animation = "pop up"
-	open = true
-	boxAnimating = true
-	yield($DialoguePanel/AnimationPlayer, "animation_finished")
-	boxAnimating = false
-	get_tree().paused = true
+	speakerLabel.text = speaker
+	bodyLabel.text = body

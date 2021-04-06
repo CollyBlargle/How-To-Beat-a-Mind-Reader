@@ -2,11 +2,13 @@ extends Camera2D
 #This camera is reliant on knowing the window size. ATM, it is (1024, 600).
 #If this changes, remember to change the offset in the camera function to
 #the window size divided by 2
-var gridSize = Vector2()
+onready var gridSize = OS.get_window_size()
 var gridPosition = Vector2()
 
 func _ready():
-	gridSize = Vector2(1024, 640)
+	gridPosition.x = floor(get_parent().position.x / gridSize.x)
+	gridPosition.y = floor(get_parent().position.y / gridSize.y)
+	position = gridPosition * gridSize
 	set_as_toplevel(true)
 	updateGridPosition()
 

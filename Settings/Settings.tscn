@@ -1,16 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://settings/settings.gd" type="Script" id=1]
 [ext_resource path="res://dialogue/font_files/roboto_regular.ttf" type="DynamicFontData" id=2]
-
-
-
-
-
-
-
-
-
 
 [sub_resource type="ButtonGroup" id=1]
 
@@ -24,7 +14,6 @@ font_data = ExtResource( 2 )
 "SaveLoad",
 ]]
 pause_mode = 2
-script = ExtResource( 1 )
 
 [node name="Menu" type="PopupPanel" parent="."]
 visible = true
@@ -262,7 +251,6 @@ align = 0
 [node name="Music" type="AudioStreamPlayer" parent="."]
 volume_db = -80.0
 autoplay = true
-[connection signal="textSpeed" from="." to="." method="_on_Settings_textSpeed"]
 [connection signal="hide" from="Menu" to="." method="_on_Menu_hide"]
 [connection signal="popup_hide" from="Menu" to="." method="_on_Menu_popup_hide"]
 [connection signal="button_down" from="Menu/MarginContainer/VBoxContainer/SlidersLabels/TextSpeedButtons/CheckBox" to="." method="_on_CheckBox_button_down"]

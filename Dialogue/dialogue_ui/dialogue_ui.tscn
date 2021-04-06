@@ -1,142 +1,382 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://dialogue/font_files/roboto_bold_.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://dialogue/dialogue_ui/dialogue_ui.gd" type="Script" id=2]
-[ext_resource path="res://dialogue/dialogue_ui/choice_buttons.tscn" type="PackedScene" id=3]
-[ext_resource path="res://overworld/violet_portraits/Shocked Violet.png" type="Texture" id=4]
-[ext_resource path="res://dialogue/font_files/roboto_regular.ttf" type="DynamicFontData" id=6]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[ext_resource path="res://overworld/violet_portraits/Shocked Violet.png" type="Texture" id=2]
+[ext_resource path="res://dialogue/font_files/roboto_regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://dialogue/dialogue_ui/dialogue_ui.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 6 )
+size = 22
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 6 )
+size = 22
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 22
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 6 )
+size = 22
+font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=5]
-resource_name = "flip left"
+resource_name = "left_hide_dialogue"
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/0/path = NodePath("BodyLabel:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 0.1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
 "update": 0,
-"values": [ Vector2( 0.72, 0.72 ), Vector2( -0.72, 0.72 ) ]
+"values": [ Vector2( 304, 64 ), Vector2( 296, 64 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PortraitHolder/Portrait:position")
+tracks/1/path = NodePath("SpeakerLabel:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 10 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -472, 0 ) ]
+"values": [ Vector2( 664, 24 ), Vector2( 648, 24 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Content:rect_position")
+tracks/2/path = NodePath("BodyLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
 "update": 0,
-"values": [ Vector2( 48, 48 ), Vector2( 312, 48 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Name:rect_position")
+tracks/3/path = NodePath("PortraitHolder/Portrait:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 32, 24 ), Vector2( 296, 24 ) ]
+"values": [ Vector2( -472, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.72, 0.72 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SpeakerLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
-resource_name = "flip right"
+resource_name = "left_new_dialogue"
+length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/0/path = NodePath("BodyLabel:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.72, 0.72 ), Vector2( 0.72, 0.72 ) ]
+"values": [ Vector2( 304, 64 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PortraitHolder/Portrait:position")
+tracks/1/path = NodePath("SpeakerLabel:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -472, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 664, 24 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Name:rect_position")
+tracks/2/path = NodePath("BodyLabel:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 296, 24 ), Vector2( 32, 24 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Content:rect_position")
+tracks/3/path = NodePath("PortraitHolder/Portrait:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 312, 48 ), Vector2( 48, 48 ) ]
+"values": [ Vector2( -472, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.72, 0.72 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpeakerLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
+resource_name = "left_switch_hide"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("PortraitHolder/Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( -472, 0 ), Vector2( -232, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( -0.72, 0.72 ), Vector2( 1e-05, 0.72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BodyLabel:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 304, 64 ), Vector2( 168, 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpeakerLabel:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 664, 24 ), Vector2( 304, 24 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BodyLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpeakerLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "left_switch_show"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("PortraitHolder/Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( -232, 0 ), Vector2( -7.99994, 8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 0.72 ), Vector2( 0.72, 0.72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BodyLabel:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 132, 64 ), Vector2( 72, 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpeakerLabel:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 304, 24 ), Vector2( 40, 24 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BodyLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpeakerLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -144,24 +384,376 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 0.3, 0.3 ),
 "update": 0,
 "values": [ Vector2( 128, 768 ), Vector2( 128, 464 ) ]
 }
 
-[node name="DialogueHUD" type="CanvasLayer"]
-pause_mode = 2
-script = ExtResource( 2 )
+[sub_resource type="Animation" id=9]
+resource_name = "right_hide_dialogue"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodyLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 72, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BodyLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PortraitHolder/Portrait:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -7.99994, 8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.72, 0.72 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SpeakerLabel:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 24 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpeakerLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[node name="DialoguePanel" type="Panel" parent="."]
+[sub_resource type="Animation" id=14]
+resource_name = "right_new_dialogue"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodyLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 72, 64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BodyLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PortraitHolder/Portrait:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -7.99994, 8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.72, 0.72 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SpeakerLabel:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 24 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpeakerLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "right_switch_hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("PortraitHolder/Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -7.99994, 0 ), Vector2( -443, 0 ), Vector2( -472, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.72, 0.72 ), Vector2( -0.63, 0.72 ), Vector2( -0.72, 0.72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BodyLabel:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 56, 64 ), Vector2( 303.5, 64 ), Vector2( 320, 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpeakerLabel:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 24 ), Vector2( 602, 24 ), Vector2( 640, 24 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BodyLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpeakerLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "right_switch_show"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("PortraitHolder/Portrait:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -443, 0 ), Vector2( -472, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PortraitHolder/Portrait:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.63, 0.72 ), Vector2( -0.72, 0.72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BodyLabel:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 303.5, 64 ), Vector2( 320, 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpeakerLabel:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 602, 24 ), Vector2( 640, 24 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PortraitHolder/Portrait:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BodyLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpeakerLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="DialogueUI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="DialoguePanel" type="ColorRect" parent="."]
 pause_mode = 2
 anchor_left = 0.125
 anchor_top = 0.787
 anchor_right = 0.875
 anchor_bottom = 1.0
-margin_top = 264.32
-margin_bottom = 304.0
+margin_top = -39.68
+margin_bottom = -0.00012207
+color = Color( 0.141176, 0.141176, 0.141176, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -183,7 +775,7 @@ __meta__ = {
 position = Vector2( -472, 0 )
 scale = Vector2( -0.72, 0.72 )
 antialiased = true
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 texture_offset = Vector2( 150, 150 )
 texture_scale = Vector2( 2, 2 )
 polygon = PoolVector2Array( 0, -192, 153.234, -143.551, 203.444, 0, 153.234, 143.551, 0, 192, -143.348, 143.551, -192, 0, -144, -144 )
@@ -191,60 +783,52 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Name" type="Label" parent="DialoguePanel"]
+[node name="SpeakerLabel" type="Label" parent="DialoguePanel"]
 anchor_left = 0.042
 anchor_top = 0.143
 anchor_right = 0.146
 anchor_bottom = 0.338
-margin_left = 263.744
-margin_top = -1.168
-margin_right = 265.872
-margin_bottom = -1.12801
+margin_left = 631.744
+margin_top = -1.16798
+margin_right = 623.872
+margin_bottom = -8.48796
 custom_fonts/font = SubResource( 1 )
-text = "test"
+text = "Forrest"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChoiceButtons" parent="DialoguePanel" instance=ExtResource( 3 )]
-visible = false
-anchor_left = 0.167969
-anchor_top = -2.5625
-anchor_right = 0.167969
-anchor_bottom = -2.5625
-margin_left = -1.52588e-05
-margin_top = 0.0
-margin_right = 509.0
-margin_bottom = 260.0
-
-[node name="Content" type="RichTextLabel" parent="DialoguePanel"]
+[node name="BodyLabel" type="RichTextLabel" parent="DialoguePanel"]
 anchor_left = 0.0620937
 anchor_top = 0.318273
 anchor_right = 0.924094
 anchor_bottom = 0.865273
-margin_left = 264.312
-margin_top = -8.01605
-margin_right = 2.2959
-margin_bottom = -8.28804
+margin_left = 256.312
+margin_top = 7.98399
+margin_right = 34.2963
+margin_bottom = -0.287949
 custom_fonts/mono_font = SubResource( 2 )
 custom_fonts/bold_font = SubResource( 3 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "suh dud [b]AYYYYYY[/b] [rainbow]LET'S GOOOOOOO[/rainbow]"
-text = "suh dud AYYYYYY LET'S GOOOOOOO"
+bbcode_text = "suh dud [b]AYYYYYY[/b] [rainbow]LET'S GOOOOOOO[/rainbow]  how much text can I fit on here? bet. Bet. Bet. Bet. Bet. Bet. ijaodsfhugbshjgdfgjnd"
+text = "suh dud AYYYYYY LET'S GOOOOOOO  how much text can I fit on here? bet. Bet. Bet. Bet. Bet. Bet. ijaodsfhugbshjgdfgjnd"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="DialoguePanel/Content"]
+[node name="Timer" type="Timer" parent="DialoguePanel/BodyLabel"]
 wait_time = 0.01
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialoguePanel"]
-"anims/flip left" = SubResource( 5 )
-"anims/flip right" = SubResource( 6 )
-"anims/pop up" = SubResource( 7 )
-[connection signal="gui_input" from="DialoguePanel" to="DialoguePanel" method="_on_DialogueHUD_gui_input"]
-[connection signal="choiceMade" from="DialoguePanel/ChoiceButtons" to="DialoguePanel" method="_on_ChoiceButtons_choiceMade"]
-[connection signal="choiceMade" from="DialoguePanel/ChoiceButtons" to="." method="_on_ChoiceButtons_choiceMade"]
-[connection signal="gui_input" from="DialoguePanel/Content" to="DialoguePanel" method="_on_Content_gui_input"]
+anims/left_hide_dialogue = SubResource( 5 )
+anims/left_new_dialogue = SubResource( 6 )
+anims/left_switch_hide = SubResource( 7 )
+anims/left_switch_show = SubResource( 13 )
+anims/pop_up = SubResource( 8 )
+anims/right_hide_dialogue = SubResource( 9 )
+anims/right_new_dialogue = SubResource( 14 )
+anims/right_switch_hide = SubResource( 12 )
+anims/right_switch_show = SubResource( 15 )

@@ -1,13 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://overworld/violet/VioletAnimations.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://overworld/Particles.tres" type="SpriteFrames" id=3]
-
-
-
-
-
-
+[ext_resource path="res://overworld/particles.tres" type="SpriteFrames" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -66,7 +60,7 @@ shape = SubResource( 1 )
 position = Vector2( 32, 32 )
 scale = Vector2( 0.085, 0.085 )
 frames = ExtResource( 1 )
-animation = "downIdle"
+animation = "move_down"
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VioletSprite"]
@@ -77,7 +71,7 @@ anims/shocked = SubResource( 3 )
 scale = Vector2( 0.25, 0.25 )
 frames = ExtResource( 3 )
 animation = "angry"
-frame = 3
+frame = 1
 playing = true
 centered = false
 
